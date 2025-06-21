@@ -1,24 +1,31 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Store from "./pages/Store";
-import User from "./pages/User";
-import Task from "./pages/Task";
-import EditTask from "./pages/EditTask";
-import StoreDetails from "./pages/StoreDetails";
+"use client"
+
+import { useState } from "react"
+import Dashboard from "./pages/dashboard"
+import TaskPage from "./pages/task"
+import StorePage from "./pages/store"
+import ProfilePage from "./pages/profile"
+import "./App.css"
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/task" element={<Task />} />
-        <Route path="/edit-task/:id" element={<EditTask />} />
-        <Route path="/store-details/:id" element={<StoreDetails />} />
-      </Routes>
-    </Router>
-  );
+  const [currentPage, setCurrentPage] = useState("Dashboard")
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case "Dashboard":
+        return <Dashboard currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      case "Task":
+        return <TaskPage currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      case "Store":
+        return <StorePage currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      case "Profile":
+        return <ProfilePage currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      default:
+        return <Dashboard currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    }
+  }
+
+  return <div className="App">{renderPage()}</div>
 }
 
-export default App;
+export default App
