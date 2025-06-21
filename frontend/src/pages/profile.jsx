@@ -1,5 +1,5 @@
 import Navigation from "./navigation"
-import Footer from "./footer"
+import Footer from "footer"
 
 const collections = [
   { id: 1, name: "Penguin", status: "Healthy", image: "🐧" },

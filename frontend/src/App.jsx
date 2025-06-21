@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Dashboard from "./pages/dashboard"
-import TaskPage from "./pages/task"
-import StorePage from "./pages/store"
-import ProfilePage from "./pages/profile"
-import "./App.css"
+import Dashboard from "pages/dashboard"
+import TaskPage from "pages/task"
+import StorePage from "pages/store"
+import ProfilePage from "pages/profile"
+import "App.css"
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Dashboard")

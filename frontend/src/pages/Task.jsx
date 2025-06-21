@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Navigation from "./navigation"
-import Footer from "./footer"
+import Footer from "footer"
 
 const tasks = [
   {
