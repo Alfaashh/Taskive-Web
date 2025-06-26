@@ -1,0 +1,14 @@
+2025-06-26T14:23:57+00:00 - POST input: {"user_id":1,"title":"lknaskna","description":"aknsdkna","deadline":"2025-06-30 21:00"}
+2025-06-26T14:23:57+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'lknaskna', 'aknsdkna', '2025-06-30 21:00', 0, NOW())
+2025-06-26T14:27:35+00:00 - POST input: {"user_id":1,"title":"asdasd","description":"asd","deadline":"2025-06-30 12:02"}
+2025-06-26T14:27:35+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'asdasd', 'asd', '2025-06-30 12:02', 0, NOW())
+2025-06-26T14:32:58+00:00 - POST input: {"user_id":1,"title":"asdasd","description":"asd","deadline":"2025-06-30 21:00"}
+2025-06-26T14:32:58+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'asdasd', 'asd', '2025-06-30 21:00', 0, NOW())
+2025-06-26T14:36:10+00:00 - POST input: {"user_id":1,"title":"asdad123","description":"","deadline":"2025-06-30 21:00"}
+2025-06-26T14:36:10+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'asdad123', '', '2025-06-30 21:00', 0, NOW())
+2025-06-26T15:23:07+00:00 - POST input: {"user_id":1,"title":"jomog","description":"lorem ipsu","deadline":"2025-06-27 21:34"}
+2025-06-26T15:23:07+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'jomog', 'lorem ipsu', '2025-06-27 21:34', 0, NOW())
+2025-06-26T15:24:07+00:00 - POST input: {"user_id":1,"title":"kdf","description":"","deadline":"2025-06-30 21:00"}
+2025-06-26T15:24:07+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'kdf', '', '2025-06-30 21:00', 0, NOW())
+2025-06-26T15:38:55+00:00 - POST input: {"user_id":1,"title":"nugh","description":"","deadline":null}
+2025-06-26T15:38:55+00:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'nugh', '', NULL, 0, NOW())
