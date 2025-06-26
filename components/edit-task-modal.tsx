@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowLeft, Trash2 } from "lucide-react"
+import { useUser } from "../app/user-context"
 
 interface EditTaskModalProps {
   isOpen: boolean
@@ -21,6 +22,7 @@ export function EditTaskModal({ isOpen, onClose, task, onTaskUpdated }: EditTask
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const { user, setUser } = useUser();
 
   useEffect(() => {
     if (task) {
@@ -65,6 +67,18 @@ export function EditTaskModal({ isOpen, onClose, task, onTaskUpdated }: EditTask
     const data = await res.json()
     setLoading(false)
     if (data.success) {
+      let baseXp = typeof user.xp === 'number' && !isNaN(user.xp) ? user.xp : 0;
+      let newXp = baseXp + 20;
+      let newLevel = user.level;
+      let nextLevelExp = (newLevel + 1) * 100;
+      let newCoins = user.coins + 15;
+      // Level up logic
+      while (newXp >= nextLevelExp) {
+        newXp -= nextLevelExp;
+        newLevel += 1;
+        nextLevelExp = (newLevel + 1) * 100;
+      }
+      await setUser({ ...user, xp: newXp, level: newLevel, coins: newCoins });
       onClose()
       if (onTaskUpdated) onTaskUpdated()
     } else {

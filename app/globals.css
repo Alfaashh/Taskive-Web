@@ -37,10 +37,6 @@
 }
 
 /* Custom gradient classes */
-.gradient-primary {
-  background: linear-gradient(135deg, #2e073f 0%, #7812a5 100%);
-}
-
 .gradient-secondary {
   background: linear-gradient(135deg, #7812a5 0%, #ad49e1 100%);
 }

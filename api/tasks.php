@@ -19,6 +19,9 @@ header('Content-Type: application/json');
 require_once 'db.php';
 $method = $_SERVER['REQUEST_METHOD'];
 
+// Set timezone ke Asia/Jakarta
+date_default_timezone_set('Asia/Jakarta');
+
 switch ($method) {
     case 'GET':
         $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
@@ -26,18 +29,31 @@ switch ($method) {
             echo json_encode(['success' => false, 'error' => 'user_id required']);
             exit();
         }
+        // Upcoming tasks (top N by deadline)
+        if (isset($_GET['upcoming']) && $_GET['upcoming'] == '1') {
+            $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 3;
+            $sql = "SELECT * FROM tasks WHERE user_id=$user_id AND completed=0 AND deadline IS NOT NULL ORDER BY deadline ASC LIMIT $limit";
+            $result = $conn->query($sql);
+            $tasks = [];
+            while ($row = $result->fetch_assoc()) {
+                $tasks[] = $row;
+            }
+            echo json_encode(['success' => true, 'tasks' => $tasks]);
+            break;
+        }
         // Dashboard counter jika ada parameter dashboard=1
         if (isset($_GET['dashboard']) && $_GET['dashboard'] == '1') {
+            $now = date('Y-m-d H:i:s');
             $today = date('Y-m-d');
-            // Upcoming: deadline > hari ini dan belum selesai
-            $sql = "SELECT COUNT(*) as count FROM tasks WHERE user_id=$user_id AND DATE(deadline) > '$today' AND completed=0";
-            $upcoming = $conn->query($sql)->fetch_assoc()['count'];
-            // Today: deadline = hari ini dan belum selesai
-            $sql = "SELECT COUNT(*) as count FROM tasks WHERE user_id=$user_id AND DATE(deadline) = '$today' AND completed=0";
-            $today_count = $conn->query($sql)->fetch_assoc()['count'];
-            // Overdue: deadline < hari ini dan belum selesai
-            $sql = "SELECT COUNT(*) as count FROM tasks WHERE user_id=$user_id AND DATE(deadline) < '$today' AND completed=0";
+            // Overdue: deadline <= sekarang
+            $sql = "SELECT COUNT(*) as count FROM tasks WHERE user_id=$user_id AND deadline <= '$now' AND completed=0";
             $overdue = $conn->query($sql)->fetch_assoc()['count'];
+            // Today: deadline > sekarang DAN tanggal deadline = hari ini
+            $sql = "SELECT COUNT(*) as count FROM tasks WHERE user_id=$user_id AND deadline > '$now' AND DATE(deadline) = '$today' AND completed=0";
+            $today_count = $conn->query($sql)->fetch_assoc()['count'];
+            // Upcoming: deadline > sekarang DAN tanggal deadline > hari ini
+            $sql = "SELECT COUNT(*) as count FROM tasks WHERE user_id=$user_id AND deadline > '$now' AND DATE(deadline) > '$today' AND completed=0";
+            $upcoming = $conn->query($sql)->fetch_assoc()['count'];
             echo json_encode([
                 'success' => true,
                 'dashboard' => [

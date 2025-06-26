@@ -3,14 +3,11 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { DollarSign } from "lucide-react"
+import { useUser } from "../app/user-context"
 
 export function TopBar() {
   const pathname = usePathname()
-
-  // Mock user data - in real app, this would come from authentication/session
-  const user = {
-    coins: 240,
-  }
+  const { user } = useUser()
 
   const navItems = [
     { name: "Dashboard", href: "/" },
@@ -31,7 +28,7 @@ export function TopBar() {
                 href={item.href}
                 className={`px-4 py-2 rounded-full font-medium transition-all duration-200 ${
                   pathname === item.href
-                    ? "gradient-primary text-white shadow-md"
+                    ? "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white shadow-md"
                     : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                 }`}
               >

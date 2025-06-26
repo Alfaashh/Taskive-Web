@@ -1,66 +1,55 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
-export function DashboardStats() {
+export function DashboardStats({ refreshTrigger }: { refreshTrigger?: number }) {
   const [stats, setStats] = useState({
     upcoming: 0,
     today: 0,
     overdue: 0,
   })
+  const intervalRef = useRef<any>(null)
+
+  const fetchStats = async () => {
+    try {
+      const res = await fetch('http://localhost/web/api/tasks.php?user_id=1&dashboard=1')
+      const data = await res.json()
+      if (data.success && data.dashboard) {
+        setStats({
+          upcoming: data.dashboard.upcoming,
+          today: data.dashboard.today,
+          overdue: data.dashboard.overdue,
+        })
+      }
+    } catch (err) {
+      // fallback: biarkan tetap 0
+    }
+  }
 
   useEffect(() => {
-    // Mock function to calculate real stats
-    // In real app, this would be an API call to PHP backend
-    const calculateStats = () => {
-      // Mock tasks with real dates for demonstration
-      const mockTasks = [
-        { id: 1, deadline: new Date("2024-12-30"), completed: false },
-        { id: 2, deadline: new Date("2024-12-31"), completed: false },
-        { id: 3, deadline: new Date("2025-01-01"), completed: false },
-        { id: 4, deadline: new Date("2025-01-02"), completed: false },
-        { id: 5, deadline: new Date("2024-12-20"), completed: false }, // Overdue
-        { id: 6, deadline: new Date("2024-12-21"), completed: false }, // Overdue
-      ]
-
-      const today = new Date()
-      today.setHours(0, 0, 0, 0)
-
-      const tomorrow = new Date(today)
-      tomorrow.setDate(tomorrow.getDate() + 1)
-
-      const upcomingCount = mockTasks.filter((task) => !task.completed && task.deadline >= tomorrow).length
-      const todayCount = mockTasks.filter((task) => {
-        const taskDate = new Date(task.deadline)
-        taskDate.setHours(0, 0, 0, 0)
-        return !task.completed && taskDate.getTime() === today.getTime()
-      }).length
-      const overdueCount = mockTasks.filter((task) => !task.completed && task.deadline < today).length
-
-      setStats({
-        upcoming: upcomingCount,
-        today: todayCount,
-        overdue: overdueCount,
-      })
-    }
-
-    calculateStats()
+    fetchStats()
+    intervalRef.current = setInterval(fetchStats, 60000)
+    return () => clearInterval(intervalRef.current)
   }, [])
 
+  useEffect(() => {
+    if (refreshTrigger !== undefined) fetchStats()
+  }, [refreshTrigger])
+
   const statsData = [
-    { label: "Upcoming", count: stats.upcoming, color: "gradient-primary" },
-    { label: "Today", count: stats.today, color: "gradient-primary" },
-    { label: "Overdue", count: stats.overdue, color: "gradient-accent" },
+    { label: "Upcoming", count: stats.upcoming, color: "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400" },
+    { label: "Today", count: stats.today, color: "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400" },
+    { label: "Overdue", count: stats.overdue, color: "bg-gradient-to-br from-pink-200 via-purple-200 to-purple-400" },
   ]
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {statsData.map((stat) => (
-        <div key={stat.label} className={`${stat.color} text-white p-8 rounded-2xl shadow-lg`}>
-          <h3 className="text-xl font-semibold mb-2">{stat.label}</h3>
+        <div key={stat.label} className={`${stat.color} text-white p-8 rounded-2xl shadow-lg relative`}>
+          <h3 className="text-xl font-semibold mb-2 drop-shadow-[0_1px_4px_rgba(60,0,80,0.5)]">{stat.label}</h3>
           <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-bold">{stat.count}</span>
-            <span className="text-lg opacity-80">tasks</span>
+            <span className="text-5xl font-bold drop-shadow-[0_1px_4px_rgba(60,0,80,0.7)]">{stat.count}</span>
+            <span className="text-lg opacity-80 font-bold drop-shadow-[0_1px_4px_rgba(60,0,80,0.7)]">tasks</span>
           </div>
         </div>
       ))}

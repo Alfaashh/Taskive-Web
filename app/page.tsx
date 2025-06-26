@@ -1,8 +1,14 @@
+"use client";
 import { DashboardStats } from "@/components/dashboard-stats"
 import { RecentTasks } from "@/components/recent-tasks"
 import { StorePreview } from "@/components/store-preview"
+import { ToastTest } from "@/components/ToastTest"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
+import { useUser } from "./user-context"
 
 export default function Dashboard() {
+  const pathname = usePathname();
   const currentDate = new Date()
   const dateString = currentDate.toLocaleDateString("en-US", {
     weekday: "short",
@@ -16,14 +22,13 @@ export default function Dashboard() {
     hour12: true,
   })
 
-  // Mock user data - in real app, this would come from authentication/session
-  const user = {
-    name: "Zayn Javadd Malik",
-    firstName: "Zayn",
-  }
+  const { user } = useUser();
+
+  const [refreshTrigger, setRefreshTrigger] = useState(0)
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <ToastTest />
       {/* Header Section */}
       <div className="flex justify-between items-start mb-8">
         <div>
@@ -34,17 +39,17 @@ export default function Dashboard() {
         </div>
         <div className="text-right">
           <h2 className="text-4xl font-bold">
-            Hi, <span className="text-gradient">{user.firstName}</span>
+            Hi, <span className="text-gradient">{user.name.split(' ')[0]}</span>
           </h2>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <DashboardStats />
+      <DashboardStats key={pathname} refreshTrigger={refreshTrigger} />
 
       {/* Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-        <RecentTasks />
+        <RecentTasks onTaskChanged={() => setRefreshTrigger(t => t + 1)} />
         <StorePreview />
       </div>
     </div>

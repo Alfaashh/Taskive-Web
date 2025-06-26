@@ -6,8 +6,10 @@ import { ProfileStats } from "@/components/profile-stats"
 import { Collections } from "@/components/collections"
 import { EditProfileModal } from "@/components/edit-profile-modal"
 import { Edit } from "lucide-react"
+import { useUser } from "../user-context"
 
 export default function ProfilePage() {
+  const { user, setUser } = useUser();
   const [showEditModal, setShowEditModal] = useState(false)
 
   return (
@@ -18,7 +20,7 @@ export default function ProfilePage() {
       <div className="text-center mb-8">
         <div className="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
         <div className="flex items-center justify-center gap-2 mb-4">
-          <h2 className="text-2xl font-bold">Zayn Javadd Malik</h2>
+          <h2 className="text-2xl font-bold">{user.name}</h2>
           <Button variant="ghost" size="icon" onClick={() => setShowEditModal(true)}>
             <Edit className="w-5 h-5" />
           </Button>
@@ -29,13 +31,13 @@ export default function ProfilePage() {
       </div>
 
       {/* Profile Stats */}
-      <ProfileStats />
+      <ProfileStats level={user.level} nextLevel={user.level+1} currentExp={user.exp} nextLevelExp={user.nextLevelExp} coins={user.coins} />
 
       {/* Collections */}
-      <Collections />
+      <Collections pets={user.pets} />
 
       {/* Edit Profile Modal */}
-      <EditProfileModal isOpen={showEditModal} onClose={() => setShowEditModal(false)} />
+      <EditProfileModal isOpen={showEditModal} onClose={() => setShowEditModal(false)} onNameChange={name => setUser({ ...user, name })} />
     </div>
   )
 }

@@ -1,21 +1,26 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useUser } from "../app/user-context"
 
 interface EditProfileModalProps {
   isOpen: boolean
   onClose: () => void
+  onNameChange?: (name: string) => void
 }
 
-export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
-  const [name, setName] = useState("Zayn Javadd Malik")
+export function EditProfileModal({ isOpen, onClose, onNameChange }: EditProfileModalProps) {
+  const { user, setUser } = useUser();
+  const [name, setName] = useState(user.name);
+  useEffect(() => { setName(user.name) }, [user.name]);
 
-  const handleSave = () => {
-    // Handle profile update
-    console.log({ name })
+  const handleSave = async () => {
+    // Update user context & database
+    await setUser({ ...user, name });
+    if (onNameChange) onNameChange(name)
     onClose()
   }
 

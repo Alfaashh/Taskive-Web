@@ -68,7 +68,7 @@ export default function TasksPage() {
           <button
             onClick={() => setActiveTab("active")}
             className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
-              activeTab === "active" ? "gradient-primary text-white shadow-md" : "text-gray-600 hover:text-gray-800"
+              activeTab === "active" ? "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white shadow-md" : "text-gray-600 hover:text-gray-800"
             }`}
           >
             My Tasks
@@ -76,7 +76,7 @@ export default function TasksPage() {
           <button
             onClick={() => setActiveTab("completed")}
             className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
-              activeTab === "completed" ? "gradient-primary text-white shadow-md" : "text-gray-600 hover:text-gray-800"
+              activeTab === "completed" ? "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white shadow-md" : "text-gray-600 hover:text-gray-800"
             }`}
           >
             Completed
@@ -97,7 +97,7 @@ export default function TasksPage() {
         </div>
         <Button
           onClick={() => setShowCreateModal(true)}
-          className="gradient-primary hover:opacity-90 text-white px-6 shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-2xl"
+          className="bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 hover:opacity-90 text-white px-6 shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-2xl"
         >
           <Plus className="w-5 h-5 mr-2" />
           Create Task
@@ -105,12 +105,19 @@ export default function TasksPage() {
       </div>
 
       {/* Task List */}
-      <TaskList
-        tasks={tasks}
-        activeTab={activeTab}
-        searchQuery={searchQuery}
-        onTaskClick={handleTaskClick}
-      />
+      <div className="bg-white rounded-2xl p-6 shadow-md">
+        <h2 className="text-xl font-bold mb-4">Your Tasks</h2>
+        {tasks.length === 0 ? (
+          <div className="text-gray-400 text-center py-8 font-semibold">You don't have any task for now</div>
+        ) : (
+          <TaskList
+            tasks={tasks}
+            activeTab={activeTab}
+            searchQuery={searchQuery}
+            onTaskClick={handleTaskClick}
+          />
+        )}
+      </div>
 
       {/* Modals */}
       <CreateTaskModal isOpen={showCreateModal} onClose={() => setShowCreateModal(false)} onTaskAdded={handleTaskAdded} />

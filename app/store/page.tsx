@@ -19,7 +19,7 @@ export default function StorePage() {
           <button
             onClick={() => setActiveTab("pet")}
             className={`px-8 py-2 rounded-full font-medium transition-all duration-200 ${
-              activeTab === "pet" ? "gradient-primary text-white shadow-md" : "text-gray-600 hover:text-gray-800"
+              activeTab === "pet" ? "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white shadow-md" : "text-gray-600 hover:text-gray-800"
             }`}
           >
             Pet
@@ -27,7 +27,7 @@ export default function StorePage() {
           <button
             onClick={() => setActiveTab("food")}
             className={`px-8 py-2 rounded-full font-medium transition-all duration-200 ${
-              activeTab === "food" ? "gradient-primary text-white shadow-md" : "text-gray-600 hover:text-gray-800"
+              activeTab === "food" ? "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white shadow-md" : "text-gray-600 hover:text-gray-800"
             }`}
           >
             Food

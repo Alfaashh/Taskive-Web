@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="gradient-primary text-white py-12">
+    <footer className="bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
