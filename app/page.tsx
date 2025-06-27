@@ -48,7 +48,7 @@ export default function Dashboard() {
       <DashboardStats key={pathname} refreshTrigger={refreshTrigger} />
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 items-start">
         <RecentTasks onTaskChanged={() => setRefreshTrigger(t => t + 1)} />
         <StorePreview />
       </div>

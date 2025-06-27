@@ -21,10 +21,18 @@ export function Collections({ pets }: { pets: { id: number, name: string, status
               const hp = pet.health ?? maxHP;
               let status = pet.status;
               let img = pet.image;
-              if (hp < 0.6 * maxHP) {
+              if (hp <= 0) {
+                status = 'Mati';
+                if (pet.name === 'Cat') img = '/mati.png';
+                if (pet.name === 'Penguin') img = '/mati.png';
+              } else if (hp < 0.6 * maxHP) {
                 status = 'Sakit';
                 if (pet.name === 'Cat') img = '/cat-sakit.png';
                 if (pet.name === 'Penguin') img = '/penguin-sakit.png';
+              } else {
+                status = 'Sehat';
+                if (pet.name === 'Cat') img = '/cat-sehat.png';
+                if (pet.name === 'Penguin') img = '/penguin-sehat.png';
               }
               return (
                 <>

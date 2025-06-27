@@ -187,11 +187,6 @@ export function StoreGrid({ activeTab, searchQuery }: StoreGridProps) {
 
   return (
     <>
-      <div className="flex justify-end mb-4">
-        <Button onClick={handleResetPets} disabled={resetLoading} variant="outline" className="border-red-400 text-red-600 hover:bg-red-50">
-          {resetLoading ? "Resetting..." : "Reset Pets (Testing)"}
-        </Button>
-      </div>
       <div className="flex justify-center gap-4">
         {filteredItems.map((item) => (
           <div

@@ -14,7 +14,7 @@ export type User = {
 };
 
 const defaultUser: User = {
-  name: "Loading..",
+  name: "User",
   level: 1,
   xp: 0,
   nextLevelExp: 0,

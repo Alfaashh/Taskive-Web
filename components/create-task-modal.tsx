@@ -130,7 +130,7 @@ export function CreateTaskModal({ isOpen, onClose, onTaskAdded }: CreateTaskModa
             <div>
               <h3 className="font-bold text-lg mb-2">Description</h3>
               <Textarea
-                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu vitae pharetra lectus ut lorem. Purus at a amet phasellus. Tempus Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu vitae pharetra lectus ut lorem."
+                placeholder="Add a description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={4}

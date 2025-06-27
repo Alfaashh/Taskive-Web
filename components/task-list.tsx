@@ -46,9 +46,11 @@ export function TaskList({ tasks, activeTab, searchQuery, onTaskClick }: TaskLis
                 <p className="text-sm opacity-90 leading-relaxed">{task.description}</p>
               </div>
               <div className="flex flex-col items-end gap-3 ml-6">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md">
-                  <div className="w-10 h-10 bg-gray-800 rounded-full"></div>
-                </div>
+                {task.pet_image && (
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md">
+                    <img src={task.pet_image} alt={task.pet_type || 'Pet'} className="w-12 h-12 object-contain rounded-full" />
+                  </div>
+                )}
                 {/* Bisa tambahkan info days left jika ingin */}
               </div>
             </div>

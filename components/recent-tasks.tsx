@@ -35,7 +35,7 @@ export function RecentTasks({ onTaskChanged }: { onTaskChanged?: () => void }) {
   }
 
   return (
-    <div className="bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 rounded-2xl p-6 shadow-md">
+    <div className="bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 rounded-2xl p-6 shadow-md h-full">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-bold text-white drop-shadow-[0_1px_4px_rgba(60,0,80,0.7)]">Recent Tasks</h2>
         <Button variant="ghost" className="bg-white/90 text-purple-700 font-bold hover:bg-white" onClick={() => window.location.href = '/tasks'}>

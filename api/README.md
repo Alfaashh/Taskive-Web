@@ -19,7 +19,9 @@ CREATE TABLE tasks (
   deadline DATETIME,
   completed TINYINT DEFAULT 0,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  pet_id INT DEFAULT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (pet_id) REFERENCES pets(id)
 );
 
 CREATE TABLE pets (

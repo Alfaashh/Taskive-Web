@@ -79,6 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    // Ambil user_id dari parameter GET jika ada, fallback ke 1
+    $userId = isset($_GET['user_id']) ? intval($_GET['user_id']) : 1;
     // Hapus semua pets user dan kembalikan coins
     $sql = "SELECT pet_type FROM pets WHERE user_id = ?";
     $stmt = $conn->prepare($sql);
