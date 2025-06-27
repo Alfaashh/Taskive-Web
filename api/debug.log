@@ -142,3 +142,364 @@ PUT DATA: Array
 )
 2025-06-27T02:50:11+07:00 - POST input: {"user_id":1,"title":"ASD","description":"","deadline":"2025-06-27"}
 2025-06-27T02:50:11+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'ASD', '', '2025-06-27', 0, NOW())
+2025-06-27T03:10:41+07:00 - POST input: {"user_id":1,"title":"nasd","description":"","deadline":"2025-07-10"}
+2025-06-27T03:10:41+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'nasd', '', '2025-07-10', 0, NOW())
+2025-06-27T13:19:35+07:00 - POST input: {"user_id":1,"title":"asdd","description":"","deadline":"2025-06-19"}
+2025-06-27T13:19:35+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'asdd', '', '2025-06-19', 0, NOW())
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 315
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+2025-06-27T19:00:33+07:00 - POST input: {"user_id":1,"title":"ASDDD","description":"","deadline":"2025-06-30"}
+2025-06-27T19:00:33+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'ASDDD', '', '2025-06-30', 0, NOW())
+2025-06-27T19:00:47+07:00 - POST input: {"user_id":1,"title":"QEE","description":"","deadline":"2025-06-02"}
+2025-06-27T19:00:47+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'QEE', '', '2025-06-02', 0, NOW())
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 75
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 315
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 75
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 315
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 75
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 315
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 75
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 315
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 410
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 370
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 610
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 290
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 610
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 290
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 610
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 290
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 610
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 290
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 200
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 520
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+2025-06-27T20:37:05+07:00 - POST input: {"user_id":1,"title":"kanskdn","description":"ansjnajsndankdn","deadline":"2025-07-03 23:37"}
+2025-06-27T20:37:05+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at) VALUES (1, 'kanskdn', 'ansjnajsndankdn', '2025-07-03 23:37', 0, NOW())
+
+PUT DATA: Array
+(
+    [name] => Janggar
+    [coins] => 520
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Janggar
+    [coins] => 520
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 520
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 520
+    [xp] => 60
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 535
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 535
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 535
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Kaka
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 535
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => Ganjar
+    [coins] => 215
+    [xp] => 80
+    [level] => 1
+    [email] => demo@example.com
+)

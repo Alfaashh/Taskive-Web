@@ -1,5 +1,7 @@
 "use client"
 
+import { useEffect, useState } from "react"
+
 interface TaskListProps {
   tasks: any[]
   activeTab: "active" | "completed"
@@ -8,6 +10,12 @@ interface TaskListProps {
 }
 
 export function TaskList({ tasks, activeTab, searchQuery, onTaskClick }: TaskListProps) {
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => setTick(t => t + 1), 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   const filteredTasks = tasks.filter((task) => {
     const matchesTab = activeTab === "active" ? task.completed == 0 : task.completed == 1
     const matchesSearch =
@@ -23,13 +31,13 @@ export function TaskList({ tasks, activeTab, searchQuery, onTaskClick }: TaskLis
         if (task.deadline && task.completed == 0) {
           const now = new Date();
           const end = new Date(task.deadline);
-          isOverdue = end < new Date(now.getFullYear(), now.getMonth(), now.getDate());
+          isOverdue = end < now;
         }
         return (
           <div
             key={task.id}
             onClick={() => onTaskClick(task)}
-            className={`${isOverdue ? "bg-gradient-to-r from-pink-200 to-pink-100 text-pink-900" : "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white"} p-6 rounded-xl cursor-pointer hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
+            className={`${isOverdue ? "bg-gradient-to-r from-rose-500 to-red-400 text-white shadow-lg" : "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400 text-white"} p-6 rounded-xl cursor-pointer hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
           >
             <div className="flex justify-between items-start">
               <div className="flex-1">

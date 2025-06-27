@@ -18,7 +18,11 @@ export default function ProfilePage() {
 
       {/* Profile Header */}
       <div className="text-center mb-8">
-        <div className="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
+        <img
+          src="/placeholder-user.jpg"
+          alt="Profile"
+          className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow"
+        />
         <div className="flex items-center justify-center gap-2 mb-4">
           <h2 className="text-2xl font-bold">{user.name}</h2>
           <Button variant="ghost" size="icon" onClick={() => setShowEditModal(true)}>

@@ -39,13 +39,13 @@ export function DashboardStats({ refreshTrigger }: { refreshTrigger?: number }) 
   const statsData = [
     { label: "Upcoming", count: stats.upcoming, color: "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400" },
     { label: "Today", count: stats.today, color: "bg-gradient-to-br from-purple-700 via-purple-500 to-pink-400" },
-    { label: "Overdue", count: stats.overdue, color: "bg-gradient-to-br from-pink-200 via-purple-200 to-purple-400" },
+    { label: "Overdue", count: stats.overdue, color: "bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600" },
   ]
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {statsData.map((stat) => (
-        <div key={stat.label} className={`${stat.color} text-white p-8 rounded-2xl shadow-lg relative`}>
+        <div key={stat.label} className={`${stat.color} text-white p-8 rounded-2xl shadow-lg relative ${stat.label === "Overdue" ? "border-4 border-rose-400 animate-pulse" : ""}`}>
           <h3 className="text-xl font-semibold mb-2 drop-shadow-[0_1px_4px_rgba(60,0,80,0.5)]">{stat.label}</h3>
           <div className="flex items-baseline gap-2">
             <span className="text-5xl font-bold drop-shadow-[0_1px_4px_rgba(60,0,80,0.7)]">{stat.count}</span>

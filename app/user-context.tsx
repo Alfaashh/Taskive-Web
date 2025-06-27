@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-export type Pet = { id: number, name: string, status: string, image: string };
+export type Pet = { id: number, name: string, status: string, image: string, health?: number };
 export type User = {
   name: string;
   level: number;
@@ -35,13 +35,16 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     fetch("http://localhost/web/api/user.php")
       .then((res) => res.json())
-      .then((data) => {
+      .then(async (data) => {
         if (data.success && data.user) {
+          // Fetch pets user
+          const petsRes = await fetch("http://localhost/web/api/pets.php?user_id=" + data.user.id)
+          const petsData = await petsRes.json()
           setUserState({
             ...data.user,
             xp: Number(data.user.xp) || 0,
             nextLevelExp: Math.round(600 * Math.pow(1.2, (Number(data.user.level) || 1) - 1)),
-            pets: [], // pets diabaikan dulu
+            pets: petsData.success && petsData.pets ? petsData.pets : [],
           });
         }
       });
