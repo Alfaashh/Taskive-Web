@@ -40,6 +40,29 @@ switch ($method) {
                 $conn->query("UPDATE pets SET health=$newHp WHERE id=".$row['pid']);
             }
         }
+        // Dashboard stats
+        if (isset($_GET['dashboard']) && $_GET['dashboard'] == 1) {
+            $now = date('Y-m-d H:i:s');
+            $today = date('Y-m-d');
+            // Upcoming: deadline > hari ini, belum selesai
+            $sql = "SELECT COUNT(*) as cnt FROM tasks WHERE user_id=$user_id AND completed=0 AND deadline > '$today 23:59:59'";
+            $upcoming = $conn->query($sql)->fetch_assoc()['cnt'];
+            // Today: deadline hari ini, belum selesai
+            $sql = "SELECT COUNT(*) as cnt FROM tasks WHERE user_id=$user_id AND completed=0 AND deadline >= '$today 00:00:00' AND deadline <= '$today 23:59:59'";
+            $todayCount = $conn->query($sql)->fetch_assoc()['cnt'];
+            // Overdue: deadline < sekarang, belum selesai
+            $sql = "SELECT COUNT(*) as cnt FROM tasks WHERE user_id=$user_id AND completed=0 AND deadline < '$now' AND deadline IS NOT NULL";
+            $overdue = $conn->query($sql)->fetch_assoc()['cnt'];
+            echo json_encode([
+                'success' => true,
+                'dashboard' => [
+                    'upcoming' => intval($upcoming),
+                    'today' => intval($todayCount),
+                    'overdue' => intval($overdue)
+                ]
+            ]);
+            exit();
+        }
         // Upcoming tasks limit
         if (isset($_GET['upcoming']) && $_GET['upcoming'] == 1) {
             $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 3;

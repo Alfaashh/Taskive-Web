@@ -767,3 +767,218 @@ PUT DATA: Array
     [level] => 2
     [email] => demo@example.com
 )
+2025-06-27T23:38:47+07:00 - POST input: {"user_id":1,"title":"asda","description":"","deadline":null}
+2025-06-27T23:38:47+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'asda', '', NULL, 0, NOW(), NULL)
+2025-06-27T23:43:49+07:00 - POST input: {"user_id":1,"title":"post test","description":"post test pemweb","deadline":"2025-07-01"}
+2025-06-27T23:43:49+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'post test', 'post test pemweb', '2025-07-01', 0, NOW(), NULL)
+
+PUT DATA: Array
+(
+    [name] => Janggar
+    [coins] => 615
+    [xp] => 140
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 615
+    [xp] => 140
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 615
+    [xp] => 140
+    [level] => 2
+    [email] => demo@example.com
+)
+2025-06-27T23:47:18+07:00 - POST input: {"user_id":1,"title":"post test","description":"rest","deadline":"2025-06-28 02:47"}
+2025-06-27T23:47:18+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'post test', 'rest', '2025-06-28 02:47', 0, NOW(), NULL)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 630
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+2025-06-27T23:48:55+07:00 - POST input: {"user_id":1,"title":"post","description":"","deadline":"2025-06-30"}
+2025-06-27T23:48:55+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'post', '', '2025-06-30', 0, NOW(), 17)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+2025-06-27T23:57:24+07:00 - POST input: {"user_id":1,"title":"Pre test","description":"","deadline":"2025-06-30"}
+2025-06-27T23:57:24+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Pre test', '', '2025-06-30', 0, NOW(), 17)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 390
+    [xp] => 160
+    [level] => 2
+    [email] => demo@example.com
+)
+2025-06-27T23:59:23+07:00 - POST input: {"user_id":1,"title":"Project","description":"","deadline":"2025-06-30"}
+2025-06-27T23:59:23+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Project', '', '2025-06-30', 0, NOW(), 17)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 405
+    [xp] => 180
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 315
+    [xp] => 180
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 330
+    [xp] => 200
+    [level] => 2
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 345
+    [xp] => 10
+    [level] => 3
+    [email] => demo@example.com
+)
+2025-06-28T00:18:13+07:00 - POST input: {"user_id":1,"title":"jabsjdba","description":"","deadline":"2025-06-24"}
+2025-06-28T00:18:13+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'jabsjdba', '', '2025-06-24', 0, NOW(), NULL)
+2025-06-28T00:26:24+07:00 - POST input: {"user_id":1,"title":"Today task","description":"","deadline":"2025-06-28"}
+2025-06-28T00:26:24+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Today task', '', '2025-06-28', 0, NOW(), NULL)
+2025-06-28T00:29:35+07:00 - POST input: {"user_id":1,"title":"Overdue","description":"","deadline":"2025-06-26"}
+2025-06-28T00:29:35+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Overdue', '', '2025-06-26', 0, NOW(), NULL)
+2025-06-28T00:29:48+07:00 - POST input: {"user_id":1,"title":"Today","description":"","deadline":"2025-06-28 03:29"}
+2025-06-28T00:29:48+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Today', '', '2025-06-28 03:29', 0, NOW(), NULL)
+2025-06-28T00:29:59+07:00 - POST input: {"user_id":1,"title":"Upcoming","description":"","deadline":"2025-07-01"}
+2025-06-28T00:29:59+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Upcoming', '', '2025-07-01', 0, NOW(), NULL)
+2025-06-28T00:30:12+07:00 - POST input: {"user_id":1,"title":"No deadline","description":"","deadline":null}
+2025-06-28T00:30:12+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'No deadline', '', NULL, 0, NOW(), NULL)
+
+PUT DATA: Array
+(
+    [name] => John
+    [coins] => 360
+    [xp] => 390
+    [level] => 3
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 360
+    [xp] => 390
+    [level] => 3
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 360
+    [xp] => 390
+    [level] => 3
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 375
+    [xp] => 10
+    [level] => 4
+    [email] => demo@example.com
+)
+2025-06-28T00:31:49+07:00 - POST input: {"user_id":1,"title":"Pet task","description":"","deadline":"2025-06-30"}
+2025-06-28T00:31:49+07:00 - SQL: INSERT INTO tasks (user_id, title, description, deadline, completed, created_at, pet_id) VALUES (1, 'Pet task', '', '2025-06-30', 0, NOW(), 18)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 285
+    [xp] => 10
+    [level] => 4
+    [email] => demo@example.com
+)
+
+PUT DATA: Array
+(
+    [name] => George
+    [coins] => 300
+    [xp] => 30
+    [level] => 4
+    [email] => demo@example.com
+)
